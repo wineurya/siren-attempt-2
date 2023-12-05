@@ -1,9 +1,16 @@
 document.querySelectorAll('#nav-links a').forEach(link => {
-    link.addEventListener('mouseover', () => {
-        // Add hover effects
-    });
+    document.querySelectorAll('#nav-links a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
 
-    link.addEventListener('mouseout', () => {
-        // Remove hover effects
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
 });
