@@ -294,3 +294,56 @@ footer {
     margin: 110px 0px 0px 0px;
     scale: 2;
 }
+
+
+#prototype {
+    font-size: 50px;
+    color: white;
+    background-color: black;
+    position: relative;
+    overflow: hidden; /* Ensures parts of the word outside this element are not shown */
+}
+
+#prototype::before, #prototype::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    width: 50%;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 50px;
+    color: white;
+    transition: transform 0.5s ease;
+}
+
+#prototype::before {
+    left: -100px;
+    text-align: right;
+    transform: translateX(-100%);
+}
+
+#prototype::after {
+    right: -100px;
+    text-align: left;
+    transform: translateX(100%);
+}
+
+#prototype:hover::before {
+    transform: translateX(0);
+}
+
+#prototype:hover::after {
+    transform: translateX(0);
+}
+
+#prototype:hover {
+    text-decoration: underline;
+}
+
+.prototype-link {
+    text-decoration: none; /* Removes the default underline of links */
+    color: inherit; /* Inherits the color from the parent element */
+    /* Add any other styles you need for the link */
+}
+
+
